@@ -1,0 +1,96 @@
+<!-- invoice modal -->
+<!-- <mat-card>
+  <mat-card-title class="quote-card-title">Invoice Summary</mat-card-title>
+  <br /><br />
+  <mat-card-content>
+    <div
+      fxLayout="row"
+      class="book-details"
+      *ngFor="let service of chosenServices; let i = index"
+    >
+      <p>{{ service.name }}____</p>
+
+      <p>${{ service.cost }}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="accent" matDialogClose="confirm">
+      OK
+    </button>
+  </mat-card-actions>
+</mat-card> -->
+
+<!-- Form -->
+
+<form [formGroup]="servicesForm" style="padding: 50px">
+  <br />
+  <br />
+  <br />
+
+  <!-- services -->
+  <section>
+    <form [formGroup]="servicesForm" (ngSubmit)="submit()" novalidate>
+      <section>
+        <mat-card class="quote-card">
+          <mat-card-title class="quote-card-title">Services</mat-card-title>
+          <mat-card-content class="quote-content">
+            <div
+              *ngFor="let service of services.serviceOptions; let i = index"
+              class="quote-section"
+            >
+              <input
+                type="checkbox"
+                formArrayName="selectedServices"
+                [value]="service.value"
+                (change)="onChange($event)"
+                id="{{ service.id }}"
+              />
+              <mat-label for="" class="label-style" style="padding-left: 10px"
+                >{{ service.name }} (${{ service.value }})</mat-label
+              >
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </section>
+
+      <section>
+        <mat-card class="quote-card">
+          <mat-card-title class="quote-card-title"
+            >Standard Fees</mat-card-title
+          >
+          <mat-card-content class="quote-content">
+            <div
+              *ngFor="let service of services.standardService; let i = index"
+              class="quote-section"
+            >
+              <mat-form-field>
+                <mat-label class="label-style">{{ service.name }}</mat-label>
+                <input
+                  id="{{ service.id }}"
+                  matInput
+                  type="number"
+                  placeholder="0.00"
+                  formArrayName="selectedServices"
+                  (change)="onChange($event)"
+                />
+                <mat-hint class="hint">{{ service.hint }}</mat-hint>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </section>
+      <br />
+      <br />
+      <br />
+      <div align="right">
+        <button mat-button type="submit" class="quote-submit">
+          Calculate Total
+        </button>
+      </div>
+    </form>
+
+    <p>Total: ${{ totalCost }}</p>
+    <p>{{ servicesForm.value | json }}</p>
+    <p>Selected: {{ chosenServices | json }}</p>
+  </section>
+</form>

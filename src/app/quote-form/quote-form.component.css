@@ -1,0 +1,51 @@
+form {
+  max-width: 75%;
+  margin: auto;
+  padding: 0;
+}
+.quote-card {
+  margin: 10px auto;
+  padding: 10px 0;
+}
+.quote-card-title {
+  font-size: 45px;
+  color: white;
+  background-color: black;
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+}
+.quote-content {
+  max-width: 90%;
+  margin: auto;
+  padding: 20px auto;
+}
+
+.quote-section {
+  padding: 20px;
+}
+
+.label-style {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  height: 2em;
+  cursor: pointer;
+}
+.hint {
+  font-size: 20px;
+}
+
+.quote-submit {
+  background-color: black;
+  color: white;
+  width: 10em;
+  height: 3em;
+}
